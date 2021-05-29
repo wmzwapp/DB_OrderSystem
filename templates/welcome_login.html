@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>欢迎来到干饭人Club</title>
+  <link rel="stylesheet" href="../static/css/welcome_style.css">
+</head>
+
+<body background="../static/sources/result2.png">
+<!-- partial:index.partial.html -->
+{% if get_flashed_messages() %}
+          <script>
+          alert('{{ get_flashed_messages()[0] }}');
+          </script>
+{% endif %}
+<button><a href="staff_login">员工登录</a></button>
+        <br>
+<button><a href="admin_login">管理员登录</a></button>
+<div class="login-page">
+  <div class="form">
+      <h1>会员登录</h1>
+    <form class="login-form" action="{{url_for('login')}}" method="post">
+      {{ loginform.username }}
+        {% for message in loginform.username.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      {{ loginform.password }}
+        {% for message in loginform.password.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      <button type="submit">登录</button>
+      <p class="message">没有账户? <a href="{{ url_for('signup') }}">注册会员</a></p>
+      <p class="message"><a href="{{ url_for('consumer_login', type='not_member')}}">跳过注册，直接使用</a></p>
+    </form>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../static/js/welcome_script.js"></script>
+
+</body>
+</html>

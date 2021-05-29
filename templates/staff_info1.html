@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>员工信息</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="../../../static/css/info_style.css">
+
+</head>
+<body background="../../../static/sources/result2.png">
+<!-- partial:index.partial.html -->
+<header style="background-color:#ffffff;margin:auto;margin-top:80px;margin-left:150px;margin-right:150px">
+	<button style="float:left;margin:10px;"><a href="/welcome">退出</a></button>
+	<div class="container">
+
+		<div class="profile">
+
+			<div class="profile-image">
+
+				<img src="../../../static/sources/images.jpg" height="200" width="200" alt="">
+
+			</div>
+
+			<div class="profile-user-settings">
+
+				<h1 class="profile-user-name">你好，{{staffinfo.Sname}}！</h1>
+				<form method="post" style="margin-top:10px">
+					<button class="btn profile-edit-btn" >修改密码</button>
+				</form>
+			</div>
+
+			<div class="profile-stats">
+
+				<ul>
+					<li>员工编号：<span class="profile-stat-count">{{staffinfo.Sno}}</span></li>
+					<li>姓名：<span class="profile-stat-count">{{staffinfo.Sname}}</span></li>
+                    <li>性别：<span class="profile-stat-count">{{staffinfo.Sex}}</span></li>
+					<br>
+					<li>手机号：<span class="profile-stat-count">{{staffinfo.Sphone}}</span></li>
+					<li>住址：<span class="profile-stat-count">{{staffinfo.Saddr}}</span></li>
+                    <br>
+                    <li>职位：<span class="profile-stat-count">{{staffinfo.Stype}}</span></li>
+                    <li>薪资：<span class="profile-stat-count">{{staffinfo.Spay}}</span></li>
+                    <li>入职时间：<span class="profile-stat-count">{{staffinfo.Sintime}}</span></li>
+				</ul>
+
+			</div>
+
+		</div>
+		<!-- End of profile section -->
+
+	</div>
+	<!-- End of container -->
+    <br>
+  <br>
+
+</header >
+
+<!-- partial -->
+  <script  src="../../../static/js/info_script.js"></script>
+
+</body>
+</html>

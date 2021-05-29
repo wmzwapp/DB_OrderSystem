@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="../../../static/css/info_style.css">
+
+</head>
+<body background="../../../static/sources/result2.png">
+<!-- partial:index.partial.html -->
+<header style="background-color:#ffffff;margin:auto;margin-top:80px;margin-left:150px;margin-right:150px">
+	<button style="float:left;margin:10px;"><a href="/welcome">退出</a></button>
+	<div class="container">
+
+		<div class="profile">
+
+			<div class="profile-image">
+
+				<img src="../../../static/sources/kamato_tzl.png" height="200" width="200" alt="">
+
+			</div>
+
+			<div class="profile-user-settings">
+
+				<h1 class="profile-user-name">{{member.Mname}}</h1>
+				<form method="post" style="margin-top:10px;margin-bottom:10px">
+					<button class="btn profile-edit-btn" >修改密码</button>
+				</form>
+				<form method="GET" action="{{ url_for('order_dishes', consumer=url_args[0], listid=url_args[1], consumer_num=url_args[2]) }}">
+      			<input class="btn profile-edit-btn" type="submit" value="继续点单" name="order" >
+    			</form>
+			</div>
+
+			<div class="profile-stats">
+
+				<ul>
+					<li>会员编号<span class="profile-stat-count">{{member.Mno}}</span></li>
+					<li>联系方式<span class="profile-stat-count">{{member.Mphone}}</span></li>
+					<br>
+					<li>会员等级<span class="profile-stat-count">{{member.mMlevel}}</span></li>
+					<li>享受折扣：<span class="profile-stat-count">{{member.Mdiscount}}</span></li>
+				</ul>
+
+			</div>
+
+			<div class="profile-bio">
+
+				<p>尊敬的会员：<span class="profile-real-name">{{member.Mname}}</span> ，您的消费记录如下：</p>
+
+			</div>
+
+		</div>
+		<!-- End of profile section -->
+
+	</div>
+	<!-- End of container -->
+
+</header >
+
+<main  style="background-color:#ffffff;margin:auto;margin-left:150px;margin-right:150px">
+
+	<div class="container">
+		<table style="border:3px solid;margin-bottom:150px;margin:auto">
+        <tr>
+          <th style="width:20%">时间</th><th style="width:10%">消费金额</th><th style="width:50%">明细</th>
+        </tr>
+        {% for i in range(0, billnum) %}
+        <tr>
+          <td style="padding:30px">{{ bills[i].Btime }}</td><td style="padding:30px">{{ bills[i].Bcost }}</td><td style="padding:30px">{{ mylists[i] }}</td>
+        </tr>
+        {% endfor %}
+      	</table>
+	</div>
+	<br>
+	<br>
+	<!-- End of container -->
+
+</main>
+<!-- partial -->
+  <script  src="../../../static/js/info_script.js"></script>
+
+</body>
+</html>

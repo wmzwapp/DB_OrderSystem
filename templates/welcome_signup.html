@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>欢迎来到干饭人Club</title>
+  <link rel="stylesheet" href="../static/css/welcome_style.css">
+
+</head>
+<body background="../static/sources/result2.png">
+<!-- partial:index.partial.html -->
+{% if get_flashed_messages() %}
+          <script>
+          alert('{{ get_flashed_messages()[0] }}');
+          </script>
+{% endif %}
+<div class="login-page">
+  <div class="form">
+      <h1>注册会员</h1>
+    <form class="login-form" action="{{url_for('signup')}}" method="post">
+      {{ signupform.username }}
+        {% for message in signupform.username.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      {{ signupform.phone }}
+        {% for message in signupform.phone.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      {{ signupform.password }}
+        {% for message in signupform.password.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      {{ signupform.password_cfm }}
+        {% for message in signupform.password_cfm.errors %}
+            <small class="error">{{ message }}</small><br>
+        {% endfor %}
+      <button type="submit">注册</button>
+      <p class="message">已经拥有账户? <a href="{{ url_for('login') }}">登录现有账户</a></p>
+      <p class="message"><a href="{{ url_for('consumer_login', type='not_member')}}">跳过注册，直接使用</a></p>
+    </form>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../static/js/welcome_script.js"></script>
+
+</body>
+</html>
