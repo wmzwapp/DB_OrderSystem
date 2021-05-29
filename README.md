@@ -1,2 +1,2 @@
-# DB_OrderSystem
-同济大学-2021数据库课设-自助点餐系统
+# DB_OrderSystemd
+许多功能有待完善...
