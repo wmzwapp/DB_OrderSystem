@@ -1,8 +1,6 @@
 # coding:utf8
-import sqlalchemy.sql.functions
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, render_template, redirect, url_for, flash
-from models import *
 from forms import *
 import time
 
@@ -12,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:73369648@localhost
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = 'dev'
 db = SQLAlchemy(app)
+from models import *
 
 # 登录视图函数
 @app.route('/welcome')

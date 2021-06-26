@@ -1,5 +1,5 @@
 # coding=utf8
-from test import db
+from web_server import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
